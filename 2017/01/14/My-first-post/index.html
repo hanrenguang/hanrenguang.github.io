@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="博客搭建," />
 
 
 
@@ -84,16 +84,22 @@
 
 
 
-<meta name="description" content="专心做技术">
+<meta name="description" content="用时两天，基本把博客给搭起来了，其实大多时间都花在前一个主题 yilia 的配置上，大概是我比较蠢吧。。弄了好久都没搞定，还被重装node折腾了好久，windows上重装node总是报错，最后只好手动重装。最后选择了next主题，感觉好赞，首先文档就很清晰，再有就是页面很简洁，看着舒服。
+下载主题如果你想看详细的文档，请移步 Next。
+在此假设你已经会使用git了，首先在你的博客文件夹根目录右键">
 <meta property="og:type" content="article">
-<meta property="og:title" content="My first post">
+<meta property="og:title" content="搭建博客">
 <meta property="og:url" content="http://yoursite.com/2017/01/14/My-first-post/index.html">
 <meta property="og:site_name" content="Hanrenguang's blog">
-<meta property="og:description" content="专心做技术">
-<meta property="og:updated_time" content="2017-01-14T04:13:37.682Z">
+<meta property="og:description" content="用时两天，基本把博客给搭起来了，其实大多时间都花在前一个主题 yilia 的配置上，大概是我比较蠢吧。。弄了好久都没搞定，还被重装node折腾了好久，windows上重装node总是报错，最后只好手动重装。最后选择了next主题，感觉好赞，首先文档就很清晰，再有就是页面很简洁，看着舒服。
+下载主题如果你想看详细的文档，请移步 Next。
+在此假设你已经会使用git了，首先在你的博客文件夹根目录右键">
+<meta property="og:updated_time" content="2017-01-14T05:37:34.146Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="My first post">
-<meta name="twitter:description" content="专心做技术">
+<meta name="twitter:title" content="搭建博客">
+<meta name="twitter:description" content="用时两天，基本把博客给搭起来了，其实大多时间都花在前一个主题 yilia 的配置上，大概是我比较蠢吧。。弄了好久都没搞定，还被重装node折腾了好久，windows上重装node总是报错，最后只好手动重装。最后选择了next主题，感觉好赞，首先文档就很清晰，再有就是页面很简洁，看着舒服。
+下载主题如果你想看详细的文档，请移步 Next。
+在此假设你已经会使用git了，首先在你的博客文件夹根目录右键">
 
 
 
@@ -127,7 +133,7 @@
 
 
 
-  <title> My first post | Hanrenguang's blog </title>
+  <title> 搭建博客 | Hanrenguang's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -254,7 +260,7 @@
             
             
               
-                My first post
+                搭建博客
               
             
           </h1>
@@ -305,7 +311,19 @@
       
 
       
-        
+        <p>用时两天，基本把博客给搭起来了，其实大多时间都花在前一个主题 <code>yilia</code> 的配置上，大概是我比较蠢吧。。弄了好久都没搞定，还被重装node折腾了好久，windows上重装node总是报错，最后只好手动重装。最后选择了next主题，感觉好赞，首先文档就很清晰，再有就是页面很简洁，看着舒服。</p>
+<h2 id="下载主题"><a href="#下载主题" class="headerlink" title="下载主题"></a>下载主题</h2><p>如果你想看详细的文档，请移步 <a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">Next</a>。</p>
+<p>在此假设你已经会使用git了，首先在你的博客文件夹根目录右键选择 <code>Git Bash Here</code>，然后输入以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure>
+<p>下载完成后你会在 <code>blog\themes\</code> 目录下看到 <code>next</code> 文件夹，如果你仔细观察了，你会发现有两个 <code>_config.yml</code> 配置文件，在next的文档中，把根目录下的配置文件称作 <code>站点配置文件</code> ，而在 <code>themes\next\</code> 目录下的那个称作 <code>主题配置文件</code>，在下文中也以这个加以区分。</p>
+<h2 id="启用主题"><a href="#启用主题" class="headerlink" title="启用主题"></a>启用主题</h2><p>打开 <code>站点配置文件</code>， 找到 <code>theme</code> 字段，并将其值更改为 <code>next</code>，保存配置。然后在 git 命令行中输入以下命令：</p>
+<p>首先清一下缓存：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo clean</div></pre></td></tr></table></figure></p>
+<p>然后重新生成：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo g</div></pre></td></tr></table></figure></p>
+<p>在本地预览一下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo s</div></pre></td></tr></table></figure></p>
+<p>打开 <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> 就可以看到一个简洁美观的博客了。</p>
+<p>其他的一些配置在官方文档中都有详细的解释，在此就不再赘述了。</p>
+<h2 id="接下来。。"><a href="#接下来。。" class="headerlink" title="接下来。。"></a>接下来。。</h2><p>好了，现在博客算是搭起来了，能用，下一步就好好配置一下，接下来还准备搞个域名再把其他一些东西完善。得好好写博客记录下心得了T_T</p>
+
       
     </div>
 
@@ -325,6 +343,12 @@
 
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/博客搭建/" rel="tag"># 博客搭建</a>
+          
+        </div>
       
 
       
@@ -386,8 +410,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -409,6 +442,13 @@
           
 
           
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
 
         </nav>
 
@@ -429,6 +469,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载主题"><span class="nav-number">1.</span> <span class="nav-text">下载主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启用主题"><span class="nav-number">2.</span> <span class="nav-text">启用主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接下来。。"><span class="nav-number">3.</span> <span class="nav-text">接下来。。</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
