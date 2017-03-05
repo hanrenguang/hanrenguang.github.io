@@ -84,19 +84,19 @@
 
 
 
-<meta name="description" content="最近参加了 baidu_ife_2017，里面有个任务是用 canvas 写贪吃蛇游戏，游戏有三种玩法，不过现在我也只是完成了前两种姐（普通模式和过关模式），想记录一下遇到的几个问题和解决方法，各位走过路过也可以给些建议。可以到此试玩一下：Snake Online
-1.如何让蛇动起来用 canvas 来写游戏，无非就是设置个定时器，不断清空画布然后重绘。而让蛇动起来，让其身体每一截都往前移动，这显">
+<meta name="description" content="最近参加了 baidu_ife_2017，里面有个任务是用 canvas 写贪吃蛇游戏，游戏有三种玩法，不过现在我也只是完成了前两种（普通模式和过关模式），想记录一下遇到的几个问题和解决方法，各位走过路过也可以给些建议。可以到此试玩一下：Snake Online
+1.如何让蛇动起来用 canvas 来写游戏，无非就是设置个定时器，不断清空画布然后重绘。而让蛇动起来，让其身体每一截都往前移动，这显然">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用canvas写贪吃蛇遇到的问题">
 <meta property="og:url" content="http://yoursite.com/2017/03/05/Snake-Online/index.html">
 <meta property="og:site_name" content="Hanrenguang's blog">
-<meta property="og:description" content="最近参加了 baidu_ife_2017，里面有个任务是用 canvas 写贪吃蛇游戏，游戏有三种玩法，不过现在我也只是完成了前两种姐（普通模式和过关模式），想记录一下遇到的几个问题和解决方法，各位走过路过也可以给些建议。可以到此试玩一下：Snake Online
-1.如何让蛇动起来用 canvas 来写游戏，无非就是设置个定时器，不断清空画布然后重绘。而让蛇动起来，让其身体每一截都往前移动，这显">
-<meta property="og:updated_time" content="2017-03-05T15:26:13.414Z">
+<meta property="og:description" content="最近参加了 baidu_ife_2017，里面有个任务是用 canvas 写贪吃蛇游戏，游戏有三种玩法，不过现在我也只是完成了前两种（普通模式和过关模式），想记录一下遇到的几个问题和解决方法，各位走过路过也可以给些建议。可以到此试玩一下：Snake Online
+1.如何让蛇动起来用 canvas 来写游戏，无非就是设置个定时器，不断清空画布然后重绘。而让蛇动起来，让其身体每一截都往前移动，这显然">
+<meta property="og:updated_time" content="2017-03-05T15:28:55.773Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用canvas写贪吃蛇遇到的问题">
-<meta name="twitter:description" content="最近参加了 baidu_ife_2017，里面有个任务是用 canvas 写贪吃蛇游戏，游戏有三种玩法，不过现在我也只是完成了前两种姐（普通模式和过关模式），想记录一下遇到的几个问题和解决方法，各位走过路过也可以给些建议。可以到此试玩一下：Snake Online
-1.如何让蛇动起来用 canvas 来写游戏，无非就是设置个定时器，不断清空画布然后重绘。而让蛇动起来，让其身体每一截都往前移动，这显">
+<meta name="twitter:description" content="最近参加了 baidu_ife_2017，里面有个任务是用 canvas 写贪吃蛇游戏，游戏有三种玩法，不过现在我也只是完成了前两种（普通模式和过关模式），想记录一下遇到的几个问题和解决方法，各位走过路过也可以给些建议。可以到此试玩一下：Snake Online
+1.如何让蛇动起来用 canvas 来写游戏，无非就是设置个定时器，不断清空画布然后重绘。而让蛇动起来，让其身体每一截都往前移动，这显然">
 
 
 
@@ -328,9 +328,10 @@
       
 
       
-        <p>最近参加了 <code>baidu_ife_2017</code>，里面有个任务是用 <code>canvas</code> 写贪吃蛇游戏，游戏有三种玩法，不过现在我也只是完成了前两种姐（普通模式和过关模式），想记录一下遇到的几个问题和解决方法，各位走过路过也可以给些建议。可以到此试玩一下：<a href="https://webgg-demo.github.io/Snake%20Online/src/" target="_blank" rel="external">Snake Online</a></p>
+        <p>最近参加了 <code>baidu_ife_2017</code>，里面有个任务是用 <code>canvas</code> 写贪吃蛇游戏，游戏有三种玩法，不过现在我也只是完成了前两种（普通模式和过关模式），想记录一下遇到的几个问题和解决方法，各位走过路过也可以给些建议。可以到此试玩一下：<a href="https://webgg-demo.github.io/Snake%20Online/src/" target="_blank" rel="external">Snake Online</a></p>
 <h2 id="1-如何让蛇动起来"><a href="#1-如何让蛇动起来" class="headerlink" title="1.如何让蛇动起来"></a>1.如何让蛇动起来</h2><p>用 <code>canvas</code> 来写游戏，无非就是设置个定时器，不断清空画布然后重绘。而让蛇动起来，让其身体每一截都往前移动，这显然是非常麻烦的一件事，比如蛇身现在弯弯曲曲，而其每一截都要向爬行方向移动一格，还需要给每一截重新计算下一步的位置。在我看来是十分麻烦的一件事，于是思索一番，发现蛇每次只是移动一格，那么如果我只改变最后一截，让其位置变为爬行方向的下一格不就解决了吗。想到这，我用一个数组来维护每一截的位置对象：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> Snake(args) &#123;</div><div class="line">	this.bodyArr = [];</div><div class="line">	// 每次移动蛇头x,y值改变量</div><div class="line">	this.dx = 0;</div><div class="line">	this.dy = 0;</div><div class="line">	//...</div><div class="line">&#125;</div><div class="line"></div><div class="line">Snake.prototype.setBodyArr = <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">	var newX = this.bodyArr[0].x + this.dx;</div><div class="line">	var newY = this.bodyArr[0].y + this.dy;</div><div class="line">	// 移除最后一截</div><div class="line">	var temp = this.bodyArr.pop();</div><div class="line">	// 将下一次要移动的位置插入到位置数组中</div><div class="line">	this.bodyArr.unshift(&#123;</div><div class="line">		x: newX,</div><div class="line">		y: newY</div><div class="line">	&#125;);</div><div class="line">	// ...</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h2 id="2-食物的随机位置如何设置"><a href="#2-食物的随机位置如何设置" class="headerlink" title="2.食物的随机位置如何设置"></a>2.食物的随机位置如何设置</h2><p>或许大家觉得这个很简单，不就是产生个随机数，然后避开蛇身的位置就完事了么。我也是这么想的，但是想动手时却犯难了，我觉得应该是可以优化的。毕竟每产生一次随机数，就要和蛇身每一截去比较一次，重叠了又要重新产生随机数再全部比较一次… 虽然废不了多少时间，但总觉得可以优化，于是在 <code>github</code> 上找别人的解决方案，发现很多人都是使用一个二维数组来维护地图上每个位置的状态的，觉得不错于是将其用上了：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> Snake(args) &#123;</div><div class="line">	// position[x][y] = 0 为空，</div><div class="line">	// position[x][y] = 1 为蛇身，</div><div class="line">	// position[x][y] = 2 为食物</div><div class="line">	this.position = creat2dArr(width, height);</div><div class="line">	</div><div class="line">	//...</div><div class="line">&#125;</div><div class="line">// 产生一个值全为0的二维数组</div><div class="line"><span class="keyword">function</span> creat2dArr(width, height) &#123;</div><div class="line">	var arr = new Array(width);</div><div class="line"></div><div class="line">	<span class="keyword">for</span>(var j = 0; j &lt; width; j++) &#123;</div><div class="line">		arr[j] = new Array(height);</div><div class="line">		<span class="keyword">for</span>(var k = 0; k &lt; height; k++) &#123;</div><div class="line">			arr[j][k] = 0;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="built_in">return</span> arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>每次只需比较 <code>position[x][y]</code> 的值即可知道该位置的状态。</p>
