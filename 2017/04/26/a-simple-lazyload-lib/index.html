@@ -86,13 +86,13 @@
 
 <meta name="description" content="最近参加了不少前端实习生笔试，现写demo各种忘记，真是哭晕在厕所… 所以平时对DOM要十分熟练。嗯.. 所以，今天来实现一个图片懒加载库lazyload.js，具体代码请看我的 github。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何实现一个图片懒加载第三方库">
+<meta property="og:title" content="如何实现一个图片懒加载库">
 <meta property="og:url" content="http://yoursite.com/2017/04/26/a-simple-lazyload-lib/index.html">
 <meta property="og:site_name" content="Hanrenguang's blog">
 <meta property="og:description" content="最近参加了不少前端实习生笔试，现写demo各种忘记，真是哭晕在厕所… 所以平时对DOM要十分熟练。嗯.. 所以，今天来实现一个图片懒加载库lazyload.js，具体代码请看我的 github。">
-<meta property="og:updated_time" content="2017-04-26T13:57:01.347Z">
+<meta property="og:updated_time" content="2017-04-26T13:59:45.815Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何实现一个图片懒加载第三方库">
+<meta name="twitter:title" content="如何实现一个图片懒加载库">
 <meta name="twitter:description" content="最近参加了不少前端实习生笔试，现写demo各种忘记，真是哭晕在厕所… 所以平时对DOM要十分熟练。嗯.. 所以，今天来实现一个图片懒加载库lazyload.js，具体代码请看我的 github。">
 
 
@@ -127,7 +127,7 @@
 
 
 
-  <title> 如何实现一个图片懒加载第三方库 | Hanrenguang's blog </title>
+  <title> 如何实现一个图片懒加载库 | Hanrenguang's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -274,7 +274,7 @@
             
             
               
-                如何实现一个图片懒加载第三方库
+                如何实现一个图片懒加载库
               
             
           </h1>
@@ -335,7 +335,7 @@
 <p>把 <code>init</code> 方法的实现放到最后来讲，接下来先来实现判断图片是否在可视区的方法 <code>isInViewport</code>。</p>
 <h3 id="isInViewport方法的实现"><a href="#isInViewport方法的实现" class="headerlink" title="isInViewport方法的实现"></a>isInViewport方法的实现</h3><p>在上代码前先来讲讲 <code>getBoundingClientRect</code> 这货，不知道大家对她了解多少。MDN上给出的定义是这样的：</p>
 <ul>
-<li>Element.getBoundingClientRect()方法返回元素的大小及其相对于视口的位置。*</li>
+<li>Element.getBoundingClientRect()方法返回元素的大小及其相对于视口的位置。</li>
 </ul>
 <p>什么意思呢，就是调用了这个方法后，返回了一个包含元素的宽高及其相对于浏览器视口左上角的位置信息。嗯.. 没看懂:( 简单点说呢，这个方法返回了一个对象，长这样：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">bottom</span>: xx,</div><div class="line">    <span class="attr">left</span>: xx,</div><div class="line">    <span class="attr">right</span>: xx,</div><div class="line">    <span class="attr">top</span>: xx,</div><div class="line">    <span class="attr">height</span>: xx,</div><div class="line">    <span class="attr">width</span>: xx</div><div class="line">&#125;</div></pre></td></tr></table></figure>
