@@ -1,0 +1,700 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="vue.js," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="对于vue.js的动态数据绑定，经过反复地看源码和博客讲解，总算能够理解它的实现了，心累~ 分享一下学习成果，同时也算是做个记录。GitHub地址：https://github.com/hanrenguang/Dynamic-data-binding。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue.js动态数据绑定学习">
+<meta property="og:url" content="http://yoursite.com/2017/05/18/dynamic-data-binding/index.html">
+<meta property="og:site_name" content="Hanrenguang's blog">
+<meta property="og:description" content="对于vue.js的动态数据绑定，经过反复地看源码和博客讲解，总算能够理解它的实现了，心累~ 分享一下学习成果，同时也算是做个记录。GitHub地址：https://github.com/hanrenguang/Dynamic-data-binding。">
+<meta property="og:updated_time" content="2017-05-18T09:31:10.721Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue.js动态数据绑定学习">
+<meta name="twitter:description" content="对于vue.js的动态数据绑定，经过反复地看源码和博客讲解，总算能够理解它的实现了，心累~ 分享一下学习成果，同时也算是做个记录。GitHub地址：https://github.com/hanrenguang/Dynamic-data-binding。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/18/dynamic-data-binding/"/>
+
+
+
+
+
+  <title> vue.js动态数据绑定学习 | Hanrenguang's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hanrenguang's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/18/dynamic-data-binding/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="韩仁光">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Hanrenguang's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Hanrenguang's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                vue.js动态数据绑定学习
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-18T17:29:22+08:00">
+                2017-05-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>对于<code>vue.js</code>的动态数据绑定，经过反复地看源码和博客讲解，总算能够理解它的实现了，心累~ 分享一下学习成果，同时也算是做个记录。GitHub地址：<a href="https://github.com/hanrenguang/Dynamic-data-binding" target="_blank" rel="external">https://github.com/hanrenguang/Dynamic-data-binding</a>。</p>
+<a id="more"></a>
+<h2 id="整体思路"><a href="#整体思路" class="headerlink" title="整体思路"></a>整体思路</h2><p>不知道有没有同学和我一样，看着<code>vue</code>的源码却不知从何开始，真叫人头大。硬生生地看了<code>observer</code>, <code>watcher</code>, <code>compile</code>这几部分的源码，只觉得一脸懵逼。最终，从<a href="https://github.com/DMQ/mvvm" target="_blank" rel="external">这里</a>得到启发，作者写得很好，值得一读。</p>
+<p>关于动态数据绑定呢，需要搞定的是 <code>Dep</code> , <code>Observer</code> , <code>Watcher</code> , <code>Compile</code> 这几个类，他们之间有着各种联系，想要搞懂源码，就得先了解他们之间的联系。下面来理一理：</p>
+<ul>
+<li><code>Observer</code> 所做的就是劫持监听所有属性，当有变动时通知 <code>Dep</code>  </li>
+<li><code>Watcher</code> 向 <code>Dep</code> 添加订阅，同时，属性有变化时，<code>Observer</code> 通知 <code>Dep</code>，<code>Dep</code> 则通知 <code>Watcher</code>  </li>
+<li><code>Watcher</code> 得到通知后，调用回调函数更新视图  </li>
+<li><code>Compile</code> 则是解析所绑定元素的 <code>DOM</code> 结构，对所有需要绑定的属性添加 <code>Watcher</code> 订阅  </li>
+</ul>
+<p>由此可以看出，当属性发生变化时，是由<code>Observer</code> -&gt; <code>Dep</code> -&gt; <code>Watcher</code> -&gt; <code>update view</code>，<code>Compile</code> 在最开始解析 <code>DOM</code> 并添加 <code>Watcher</code> 订阅后就功成身退了。</p>
+<p>从程序执行的顺序来看的话，即 <code>new Vue({})</code> 之后，应该是这样的：先通过 <code>Observer</code> 劫持所有属性，然后 <code>Compile</code> 解析 <code>DOM</code> 结构，并添加 <code>Watcher</code> 订阅，再之后就是属性变化 -&gt; <code>Observer</code> -&gt; <code>Dep</code> -&gt; <code>Watcher</code> -&gt; <code>update view</code>，接下来就说说具体的实现。</p>
+<h2 id="从new一个实例开始谈起"><a href="#从new一个实例开始谈起" class="headerlink" title="从new一个实例开始谈起"></a>从new一个实例开始谈起</h2><p>网上的很多源码解读都是从 <code>Observer</code> 开始的，而我会从 <code>new</code> 一个MVVM实例开始，按照程序执行顺序去解释或许更容易理解。先来看一个简单的例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>test<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;user.name&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;user.age&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"hue.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></div><div class="line">        let vm = new Hue(&#123;</div><div class="line">            el: '.test',</div><div class="line">            data: &#123;</div><div class="line">                user: &#123;</div><div class="line">                    name: 'Jack',</div><div class="line">                    age: '18'</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>接下来都将以其为例来分析。下面来看一个简略的 <code>MVVM</code> 的实现，在此将其命名为 <code>hue</code>。为了方便起见，为 <code>data</code> 属性设置了一个代理，通过 <code>vm._data</code> 来访问 <code>data</code> 的属性显得麻烦且冗余，通过代理，可以很好地解决这个问题，在注释中也有说明。添加完属性代理后，调用了一个 <code>observe</code> 函数，这一步做的就是 <code>Observer</code> 的属性劫持了，这一步具体怎么实现，暂时先不展开。先记住他为 <code>data</code> 的属性添加了 <code>getter</code> 和 <code>setter</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Hue</span>(<span class="params">options</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.$options = options || &#123;&#125;;</div><div class="line">    <span class="keyword">let</span> data = <span class="keyword">this</span>._data = <span class="keyword">this</span>.$options.data,</div><div class="line">        self = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">    <span class="built_in">Object</span>.keys(data).forEach(<span class="function"><span class="keyword">function</span>(<span class="params">key</span>) </span>&#123;</div><div class="line">        self._proxyData(key);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    observe(data);</div><div class="line"></div><div class="line">    self.$compile = <span class="keyword">new</span> Compile(self, options.el || <span class="built_in">document</span>.body);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 为 data 做了一个代理，</span></div><div class="line"><span class="comment">// 访问 vm.xxx 会触发 vm._data[xxx] 的getter，取得 vm._data[xxx] 的值，</span></div><div class="line"><span class="comment">// 为 vm.xxx 赋值则会触发 vm._data[xxx] 的setter</span></div><div class="line">Hue.prototype._proxyData = <span class="function"><span class="keyword">function</span>(<span class="params">key</span>) </span>&#123;</div><div class="line">    <span class="keyword">let</span> self = <span class="keyword">this</span>;</div><div class="line">    <span class="built_in">Object</span>.defineProperty(self, key, &#123;</div><div class="line">        <span class="attr">configurable</span>: <span class="literal">false</span>,</div><div class="line">        <span class="attr">enumerable</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">get</span>: <span class="function"><span class="keyword">function</span> <span class="title">proxyGetter</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> self._data[key];</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">set</span>: <span class="function"><span class="keyword">function</span> <span class="title">proxySetter</span>(<span class="params">newVal</span>) </span>&#123;</div><div class="line">            self._data[key] = newVal;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>再往下看，最后一步 <code>new</code> 了一个 <code>Compile</code>，下面我们就来讲讲 <code>Compile</code>。</p>
+<h2 id="Compile"><a href="#Compile" class="headerlink" title="Compile"></a>Compile</h2><p><code>new Compile(self, options.el || document.body)</code> 这一行代码中，第一个参数是当前 <code>Hue</code> 实例，第二个参数是绑定的元素，在上面的示例中为class为 <code>.test</code> 的div。</p>
+<p>关于 <code>Compile</code>，这里只实现最简单的 <code>textContent</code> 的绑定。而 <code>Compile</code> 的代码没什么难点，很轻易就能读懂，所做的就是解析 <code>DOM</code>，并添加 <code>Watcher</code> 订阅。关于 <code>DOM</code> 的解析，先将根节点 <code>el</code> 转换成文档碎片 <code>fragment</code> 进行解析编译操作，解析完成后，再将 <code>fragment</code> 添加回原来的真实 <code>DOM</code> 节点中。来看看这部分的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Compile</span>(<span class="params">vm, el</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.$vm = vm;</div><div class="line">    <span class="keyword">this</span>.$el = <span class="keyword">this</span>.isElementNode(el)</div><div class="line">        ? el</div><div class="line">        : <span class="built_in">document</span>.querySelector(el);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.$el) &#123;</div><div class="line">        <span class="keyword">this</span>.$fragment = <span class="keyword">this</span>.node2Fragment(<span class="keyword">this</span>.$el);</div><div class="line">        <span class="keyword">this</span>.init();</div><div class="line">        <span class="keyword">this</span>.$el.appendChild(<span class="keyword">this</span>.$fragment);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Compile.prototype.node2Fragment = <span class="function"><span class="keyword">function</span>(<span class="params">el</span>) </span>&#123;</div><div class="line">    <span class="keyword">let</span> fragment = <span class="built_in">document</span>.createDocumentFragment(),</div><div class="line">        child;</div><div class="line"></div><div class="line">    <span class="comment">// 也许有同学不太理解这一步，不妨动手写个小例子观察一下他的行为</span></div><div class="line">    <span class="keyword">while</span> (child = el.firstChild) &#123;</div><div class="line">        fragment.appendChild(child);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> fragment;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">Compile.prototype.init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// 解析 fragment</span></div><div class="line">    <span class="keyword">this</span>.compileElement(<span class="keyword">this</span>.$fragment);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>以上面示例为例，此时若打印出 <code>fragment</code>，可观察到其包含两个p元素：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;user.name&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;user.age&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>下一步就是解析 <code>fragment</code>，直接看代码及注释吧：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line">Compile.prototype.compileElement = <span class="function"><span class="keyword">function</span>(<span class="params">el</span>) </span>&#123;</div><div class="line">    <span class="keyword">let</span> childNodes = <span class="built_in">Array</span>.from(el.childNodes),</div><div class="line">        self = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">    childNodes.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">node</span>) </span>&#123;</div><div class="line">        <span class="keyword">let</span> text = node.textContent,</div><div class="line">            reg = <span class="regexp">/\&#123;\&#123;(.*)\&#125;\&#125;/</span>;</div><div class="line"></div><div class="line">        <span class="comment">// 若为 textNode 元素，且匹配 reg 正则</span></div><div class="line">        <span class="comment">// 在上例中会匹配 '&#123;&#123;user.name&#125;&#125;' 及 '&#123;&#123;user.age&#125;&#125;'</span></div><div class="line">        <span class="keyword">if</span> (self.isTextNode(node) &amp;&amp; reg.test(text)) &#123;</div><div class="line">            <span class="comment">// 解析 textContent，RegExp.$1 为匹配到的内容，在上例中为 'user.name' 及 'user.age'</span></div><div class="line">            self.compileText(node, <span class="built_in">RegExp</span>.$<span class="number">1</span>);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 递归</span></div><div class="line">        <span class="keyword">if</span> (node.childNodes &amp;&amp; node.childNodes.length) &#123;</div><div class="line">            self.compileElement(node);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">Compile.prototype.compileText = <span class="function"><span class="keyword">function</span>(<span class="params">node, exp</span>) </span>&#123;</div><div class="line">    <span class="comment">// this.$vm 即为 Hue 实例，exp 为正则匹配到的内容，即 'user.name' 或 'user.age'</span></div><div class="line">    compileUtil.text(node, <span class="keyword">this</span>.$vm, exp);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">let</span> compileUtil = &#123;</div><div class="line">    <span class="attr">text</span>: <span class="function"><span class="keyword">function</span>(<span class="params">node, vm, exp</span>) </span>&#123;</div><div class="line">        <span class="keyword">this</span>.bind(node, vm, exp, <span class="string">'text'</span>);</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    <span class="attr">bind</span>: <span class="function"><span class="keyword">function</span>(<span class="params">node, vm, exp, dir</span>) </span>&#123;</div><div class="line">        <span class="comment">// 获取更新视图的回调函数</span></div><div class="line">        <span class="keyword">let</span> updaterFn = updater[dir + <span class="string">'Updater'</span>];</div><div class="line"></div><div class="line">        <span class="comment">// 先调用一次 updaterFn，更新视图</span></div><div class="line">        updaterFn &amp;&amp; updaterFn(node, <span class="keyword">this</span>._getVMVal(vm, exp));</div><div class="line"></div><div class="line">        <span class="comment">// 添加 Watcher 订阅</span></div><div class="line">        <span class="keyword">new</span> Watcher(vm, exp, <span class="function"><span class="keyword">function</span>(<span class="params">value, oldValue</span>) </span>&#123;</div><div class="line">            updaterFn &amp;&amp; updaterFn(node, value, oldValue);</div><div class="line">        &#125;);</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    <span class="comment">// 根据 exp，获得其值，在上例中即 'vm.user.name' 或 'vm.user.age'</span></div><div class="line">    _getVMVal: <span class="function"><span class="keyword">function</span>(<span class="params">vm, exp</span>) </span>&#123;</div><div class="line">        <span class="keyword">let</span> val = vm;</div><div class="line">        exp = exp.trim().split(<span class="string">'.'</span>);</div><div class="line">        exp.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">k</span>) </span>&#123;</div><div class="line">            val = val[k];</div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">return</span> val;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">let</span> updater = &#123;</div><div class="line">    <span class="comment">// Watcher 订阅的回调函数</span></div><div class="line">    <span class="comment">// 在此即更新 node.textContent，即 update view</span></div><div class="line">    textUpdater: <span class="function"><span class="keyword">function</span>(<span class="params">node, value</span>) </span>&#123;</div><div class="line">        node.textContent = <span class="keyword">typeof</span> value === <span class="string">'undefined'</span></div><div class="line">            ? <span class="string">''</span></div><div class="line">            : value;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>正如代码中所看到的，<code>Compile</code> 在解析到 <code></code> 后便添加了 <code>xxx</code> 属性的订阅，即 <code>new Watcher(vm, exp, callback)</code>。理解了这一步后，接下来就需要了解怎么实现相关属性的订阅了。先从 <code>Observer</code> 开始谈起。</p>
+<h2 id="Observer"><a href="#Observer" class="headerlink" title="Observer"></a>Observer</h2><p>从最简单的情况来考虑，即不考虑数组元素的变化。暂时先不考虑 <code>Dep</code> 与 <code>Observer</code> 的联系。先看看 <code>Observer</code> 构造函数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Observer</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.data = data;</div><div class="line">    <span class="keyword">this</span>.walk(data);</div><div class="line">&#125;</div><div class="line"></div><div class="line">Observer.prototype.walk = <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">    <span class="keyword">const</span> keys = <span class="built_in">Object</span>.keys(data);</div><div class="line">    <span class="comment">// 遍历 data 的所有属性</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; keys.length; i++) &#123;</div><div class="line">        <span class="comment">// 调用 defineReactive 添加 getter 和 setter</span></div><div class="line">        defineReactive(data, keys[i], data[keys[i]]);</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>接下来通过 <code>Object.defineProperty</code> 方法给所有属性添加 <code>getter</code> 和 <code>setter</code>，就达到了我们的目的。属性有可能也是对象，因此需要对属性值进行递归调用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">defineReactive</span>(<span class="params">obj, key, val</span>) </span>&#123;</div><div class="line">    <span class="comment">// 对属性值递归，对应属性值为对象的情况</span></div><div class="line">    <span class="keyword">let</span> childObj = observe(val);</div><div class="line"></div><div class="line">    <span class="built_in">Object</span>.defineProperty(obj, key, &#123;</div><div class="line">        <span class="attr">enumerable</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">configurable</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">get</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="comment">// 直接返回属性值</span></div><div class="line">            <span class="keyword">return</span> val;</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">set</span>: <span class="function"><span class="keyword">function</span>(<span class="params">newVal</span>) </span>&#123;</div><div class="line">            <span class="keyword">if</span> (newVal === val) &#123;</div><div class="line">                <span class="keyword">return</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="comment">// 值发生变化时修改闭包中的 val，</span></div><div class="line">            <span class="comment">// 保证在触发 getter 时返回正确的值</span></div><div class="line">            val = newVal;</div><div class="line"></div><div class="line">            <span class="comment">// 对新赋的值进行递归，防止赋的值为对象的情况</span></div><div class="line">            childObj = observe(newVal);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>最后补充上 <code>observe</code> 函数，也即 <code>Hue</code> 构造函数中调用的 <code>observe</code> 函数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">observe</span>(<span class="params">val</span>) </span>&#123;</div><div class="line">    <span class="comment">// 若 val 是对象且非数组，则 new 一个 Observer 实例，val 作为参数</span></div><div class="line">    <span class="comment">// 简单点说：是对象就继续。</span></div><div class="line">    <span class="keyword">if</span> (!<span class="built_in">Array</span>.isArray(val) &amp;&amp; <span class="keyword">typeof</span> val === <span class="string">"object"</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Observer(val);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样一来就对 <code>data</code> 的所有子孙属性（不知有没有这种说法。。）都进行了“劫持”。显然到目前为止，这并没什么用，或者说如果只做到这里，那么和什么都不做没差别。于是 <code>Dep</code> 上场了。我认为理解 <code>Dep</code> 与 <code>Observer</code> 和 <code>Watcher</code> 之间的联系是最重要的，先来谈谈 <code>Dep</code> 在 <code>Observer</code> 里做了什么。</p>
+<h2 id="Observer-amp-Dep"><a href="#Observer-amp-Dep" class="headerlink" title="Observer &amp; Dep"></a>Observer &amp; Dep</h2><p>在每一次 <code>defineReactive</code> 函数被调用之后，都会在闭包中新建一个 <code>Dep</code> 实例，即 <code>let dep = new Dep()</code>。<code>Dep</code> 提供了一些方法，先来说说 <code>notify</code> 这个方法，它做了什么事？就是在属性值发生变化的时候通知 <code>Dep</code>，那么我们的代码可以增加如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">defineReactive</span>(<span class="params">obj, key, val</span>) </span>&#123;</div><div class="line">    <span class="keyword">let</span> childObj = observe(val);</div><div class="line">    <span class="keyword">const</span> dep = <span class="keyword">new</span> Dep();</div><div class="line"></div><div class="line">    <span class="built_in">Object</span>.defineProperty(obj, key, &#123;</div><div class="line">        <span class="attr">enumerable</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">configurable</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">get</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> val;</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">set</span>: <span class="function"><span class="keyword">function</span>(<span class="params">newVal</span>) </span>&#123;</div><div class="line">            <span class="keyword">if</span> (newVal === val) &#123;</div><div class="line">                <span class="keyword">return</span>;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            val = newVal;</div><div class="line">            childObj = observe(newVal);</div><div class="line"></div><div class="line">            <span class="comment">// 发生变动</span></div><div class="line">            dep.notify();</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果仅考虑 <code>Observer</code> 与 <code>Dep</code> 的联系，即有变动时通知 <code>Dep</code>，那么这里就算完了，然而在 <code>vue.js</code> 的源码中，我们还可以看到一段增加在 <code>getter</code> 中的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// ...</span></div><div class="line">get: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (Dep.target) &#123;</div><div class="line">        dep.depend();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> val;</div><div class="line">&#125;</div><div class="line"><span class="comment">// ...</span></div></pre></td></tr></table></figure>
+<p>这个 <code>depend</code> 方法呢，它又做了啥？答案是为闭包中的 <code>Dep</code> 实例添加了一个 <code>Watcher</code> 的订阅，而 <code>Dep.target</code> 又是啥？他其实是一个 <code>Watcher</code> 实例，？？？一脸懵逼，先记住就好，先看一部份的 <code>Dep</code> 源码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 标识符，在 Watcher 中有用到，先不用管</span></div><div class="line"><span class="keyword">let</span> uid = <span class="number">0</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dep</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.id = uid++;</div><div class="line">    <span class="keyword">this</span>.subs = [];</div><div class="line">&#125;</div><div class="line"></div><div class="line">Dep.prototype.depend = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// 这一步相当于做了这么一件事：this.subs.push(Dep.target)</span></div><div class="line">    <span class="comment">// 即添加了 Watcher 订阅，addDep 是 Watcher 的方法</span></div><div class="line">    Dep.target.addDep(<span class="keyword">this</span>);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// 通知更新</span></div><div class="line">Dep.prototype.notify = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// this.subs 的每一项都为一个 Watcher 实例</span></div><div class="line">    <span class="keyword">this</span>.subs.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">sub</span>) </span>&#123;</div><div class="line">        <span class="comment">// update 为 Watcher 的一个方法，更新视图</span></div><div class="line">        <span class="comment">// 没错，实际上这个方法最终会调用到 Compile 中的 updaterFn，</span></div><div class="line">        <span class="comment">// 也即 new Watcher(vm, exp, callback) 中的 callback</span></div><div class="line">        sub.update();</div><div class="line">    &#125;);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// 在 Watcher 中调用</span></div><div class="line">Dep.prototype.addSub = <span class="function"><span class="keyword">function</span>(<span class="params">sub</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.subs.push(sub);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// 初始时引用为空</span></div><div class="line">Dep.target = <span class="literal">null</span>;</div></pre></td></tr></table></figure>
+<p>也许看到这还是一脸懵逼，没关系，接着往下。大概有同学会疑惑，为什么要把添加 <code>Watcher</code> 订阅放在 <code>getter</code> 中，接下来我们来说说这 <code>Watcher</code> 和 <code>Dep</code> 的故事。</p>
+<h2 id="Watcher-amp-Dep"><a href="#Watcher-amp-Dep" class="headerlink" title="Watcher &amp; Dep"></a>Watcher &amp; Dep</h2><p>先让我们回顾一下 <code>Compile</code> 做的事，解析 <code>fragment</code>，然后给相应属性添加订阅：<code>new Watcher(vm, exp, cb)</code>。<code>new</code> 了这个 <code>Watcher</code> 之后，<code>Watcher</code> 怎么办呢，就有了下面这样的对话：</p>
+<p>Watcher：hey <code>Dep</code>，我需要订阅 <code>exp</code> 属性的变动。</p>
+<p>Dep：这我可做不到，你得去找 <code>exp</code> 属性中的 <code>dep</code>，他能做到这件事。</p>
+<p>Watcher：可是他在闭包中啊，我无法和他联系。</p>
+<p>Dep：你拿到了整个 <code>Hue</code> 实例 <code>vm</code>，又知道属性 <code>exp</code>，你可以触发他的 <code>getter</code> 啊，你在 <code>getter</code> 里动些手脚不就行了。</p>
+<p>Watcher：有道理，可是我得让 <code>dep</code> 知道是我订阅的啊，不然他通知不到我。</p>
+<p>Dep：这个简单，我帮你，你每次触发 <code>getter</code> 前，把你的引用告诉 <code>Dep.target</code> 就行了。记得办完事后给 <code>Dep.target</code> 置空。</p>
+<p>于是就有了上面 <code>getter</code> 中的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// ...</span></div><div class="line">get: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// 是否是 Watcher 触发的</span></div><div class="line">    <span class="keyword">if</span> (Dep.target) &#123;</div><div class="line">        <span class="comment">// 是就添加进来</span></div><div class="line">        dep.depend();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> val;</div><div class="line">&#125;</div><div class="line"><span class="comment">// ...</span></div></pre></td></tr></table></figure>
+<p>现在再回头看看 <code>Dep</code> 部分的代码，是不是好理解些了。如此一来， <code>Watcher</code> 需要做的事情就简单明了了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Watcher</span>(<span class="params">vm, exp, cb</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.$vm = vm;</div><div class="line">    <span class="keyword">this</span>.cb = cb;</div><div class="line">    <span class="keyword">this</span>.exp = exp;</div><div class="line">    <span class="keyword">this</span>.depIds = <span class="keyword">new</span> <span class="built_in">Set</span>();</div><div class="line"></div><div class="line">    <span class="comment">// 返回一个用于获取相应属性值的函数</span></div><div class="line">    <span class="keyword">this</span>.getter = parseGetter(exp.trim());</div><div class="line"></div><div class="line">    <span class="comment">// 调用 get 方法，触发 getter</span></div><div class="line">    <span class="keyword">this</span>.value = <span class="keyword">this</span>.get();</div><div class="line">&#125;</div><div class="line"></div><div class="line">Watcher.prototype.get = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">const</span> vm = <span class="keyword">this</span>.$vm;</div><div class="line">    <span class="comment">// 将 Dep.target 指向当前 Watcher 实例</span></div><div class="line">    Dep.target = <span class="keyword">this</span>;</div><div class="line">    <span class="comment">// 触发 getter</span></div><div class="line">    <span class="keyword">let</span> value = <span class="keyword">this</span>.getter.call(vm, vm);</div><div class="line">    <span class="comment">// Dep.target 置空</span></div><div class="line">    Dep.target = <span class="literal">null</span>;</div><div class="line">    <span class="keyword">return</span> value;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">Watcher.prototype.addDep = <span class="function"><span class="keyword">function</span>(<span class="params">dep</span>) </span>&#123;</div><div class="line">    <span class="keyword">const</span> id = dep.id;</div><div class="line">    <span class="keyword">if</span> (!<span class="keyword">this</span>.depIds.has(id)) &#123;</div><div class="line">        <span class="comment">// 添加订阅，相当于 dep.subs.push(this)</span></div><div class="line">        dep.addSub(<span class="keyword">this</span>);</div><div class="line">        <span class="keyword">this</span>.depIds.add(id);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">parseGetter</span>(<span class="params">exp</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="regexp">/[^\w.$]/</span>.test(exp)) &#123;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">let</span> exps = exp.split(<span class="string">"."</span>);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>) </span>&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; exps.length; i++) &#123;</div><div class="line">            <span class="keyword">if</span> (!obj)</div><div class="line">                <span class="keyword">return</span>;</div><div class="line">            obj = obj[exps[i]];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> obj;</div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>最后还差一部分，即 <code>Dep</code> 通知变化后，<code>Watcher</code> 的处理，具体的函数调用流程是这样的：<code>dep.notify()</code> -&gt; <code>sub.update()</code>，直接上代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">Watcher.prototype.update = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.run();</div><div class="line">&#125;;</div><div class="line"></div><div class="line">Watcher.prototype.run = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">let</span> value = <span class="keyword">this</span>.get();</div><div class="line">    <span class="keyword">let</span> oldVal = <span class="keyword">this</span>.value;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (value !== oldVal) &#123;</div><div class="line">        <span class="keyword">this</span>.value = value;</div><div class="line">        <span class="comment">// 调用回调函数更新视图</span></div><div class="line">        <span class="keyword">this</span>.cb.call(<span class="keyword">this</span>.$vm, value, oldVal);</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>到这就算写完了，我水平有限，若有不足之处欢迎指出，一起探讨。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://github.com/DMQ/mvvm" target="_blank" rel="external">https://github.com/DMQ/mvvm</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue-js/" rel="tag"># vue.js</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/10/python-hot-reload/" rel="next" title="动手写一个"liveReload"">
+                <i class="fa fa-chevron-left"></i> 动手写一个"liveReload"
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="韩仁光" />
+          <p class="site-author-name" itemprop="name">韩仁光</p>
+          <p class="site-description motion-element" itemprop="description">专心做技术</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#整体思路"><span class="nav-number">1.</span> <span class="nav-text">整体思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从new一个实例开始谈起"><span class="nav-number">2.</span> <span class="nav-text">从new一个实例开始谈起</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Compile"><span class="nav-number">3.</span> <span class="nav-text">Compile</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Observer"><span class="nav-number">4.</span> <span class="nav-text">Observer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Observer-amp-Dep"><span class="nav-number">5.</span> <span class="nav-text">Observer & Dep</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Watcher-amp-Dep"><span class="nav-number">6.</span> <span class="nav-text">Watcher & Dep</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">7.</span> <span class="nav-text">结语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">8.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">韩仁光</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid="></script>
+      <!-- UY END -->
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
