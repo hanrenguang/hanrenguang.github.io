@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="基于 Python3 写的极简版 webserver。用于学习 HTTP协议，及 WEB服务器 工作原理。笔者对 WEB服务器 的工作原理理解的比较粗浅，仅是基于个人的理解来写的，存在很多不足和漏洞，目的在于给大家提供一个写 webserver 的思路。项目GitHub地址：https://github.com/hanrenguang/simple-webserver，本项目将持续更新，欢迎大家">
+<meta name="description" content="基于 Python3 写的极简版 webserver。用于学习 HTTP协议，及 WEB服务器 工作原理。笔者对 WEB服务器 的工作原理理解的比较粗浅，仅是基于个人的理解来写的，存在很多不足和漏洞，目的在于给大家提供一个写 webserver 的思路。项目GitHub地址：https://github.com/hanrenguang/simple-webserver。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="写一个简单的webserver">
 <meta property="og:url" content="http://yoursite.com/2017/06/14/simple-webserver-1/index.html">
 <meta property="og:site_name" content="Hanrenguang's blog">
-<meta property="og:description" content="基于 Python3 写的极简版 webserver。用于学习 HTTP协议，及 WEB服务器 工作原理。笔者对 WEB服务器 的工作原理理解的比较粗浅，仅是基于个人的理解来写的，存在很多不足和漏洞，目的在于给大家提供一个写 webserver 的思路。项目GitHub地址：https://github.com/hanrenguang/simple-webserver，本项目将持续更新，欢迎大家">
-<meta property="og:updated_time" content="2017-06-18T08:49:42.466Z">
+<meta property="og:description" content="基于 Python3 写的极简版 webserver。用于学习 HTTP协议，及 WEB服务器 工作原理。笔者对 WEB服务器 的工作原理理解的比较粗浅，仅是基于个人的理解来写的，存在很多不足和漏洞，目的在于给大家提供一个写 webserver 的思路。项目GitHub地址：https://github.com/hanrenguang/simple-webserver。">
+<meta property="og:updated_time" content="2017-06-20T08:33:05.523Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="写一个简单的webserver">
-<meta name="twitter:description" content="基于 Python3 写的极简版 webserver。用于学习 HTTP协议，及 WEB服务器 工作原理。笔者对 WEB服务器 的工作原理理解的比较粗浅，仅是基于个人的理解来写的，存在很多不足和漏洞，目的在于给大家提供一个写 webserver 的思路。项目GitHub地址：https://github.com/hanrenguang/simple-webserver，本项目将持续更新，欢迎大家">
+<meta name="twitter:description" content="基于 Python3 写的极简版 webserver。用于学习 HTTP协议，及 WEB服务器 工作原理。笔者对 WEB服务器 的工作原理理解的比较粗浅，仅是基于个人的理解来写的，存在很多不足和漏洞，目的在于给大家提供一个写 webserver 的思路。项目GitHub地址：https://github.com/hanrenguang/simple-webserver。">
 
 
 
@@ -325,7 +325,7 @@
       
 
       
-        <p>基于 <code>Python3</code> 写的极简版 <code>webserver</code>。用于学习 <code>HTTP协议</code>，及 <code>WEB服务器</code> 工作原理。笔者对 <code>WEB服务器</code> 的工作原理理解的比较粗浅，仅是基于个人的理解来写的，存在很多不足和漏洞，目的在于给大家提供一个写 <code>webserver</code> 的思路。项目GitHub地址：<a href="https://github.com/hanrenguang/simple-webserver" target="_blank" rel="external">https://github.com/hanrenguang/simple-webserver</a>，本项目将持续更新，欢迎大家 <code>star</code>。</p>
+        <p>基于 <code>Python3</code> 写的极简版 <code>webserver</code>。用于学习 <code>HTTP协议</code>，及 <code>WEB服务器</code> 工作原理。笔者对 <code>WEB服务器</code> 的工作原理理解的比较粗浅，仅是基于个人的理解来写的，存在很多不足和漏洞，目的在于给大家提供一个写 <code>webserver</code> 的思路。项目GitHub地址：<a href="https://github.com/hanrenguang/simple-webserver" target="_blank" rel="external">https://github.com/hanrenguang/simple-webserver</a>。</p>
 <a id="more"></a>
 <h2 id="WEB服务器原理"><a href="#WEB服务器原理" class="headerlink" title="WEB服务器原理"></a>WEB服务器原理</h2><p>学过计网的同学应该都知道 <code>HTTP协议</code> 是在 <code>TCP协议</code> 之上实现的。浏览器与服务器之间的通信首先是建立 <code>TCP</code> 连接，再进行请求和响应报文的传输。服务器是属于被动的一方，当浏览器发起请求的时候，服务器才能和浏览器通信，在此之前，服务器都处于一个等待监听的状态。</p>
 <h3 id="socket连接"><a href="#socket连接" class="headerlink" title="socket连接"></a>socket连接</h3><p>实现服务器的第一步是建立一个 <code>socket</code> 连接，<code>socket</code> 套接字是对 <code>TCP/UDP协议</code> 的一个封装，<code>Python</code> 就自带有 <code>socket</code> 模块，所以使用起来很方便。</p>
