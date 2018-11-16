@@ -6,15 +6,15 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -29,7 +29,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -63,21 +63,21 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="liveReload," />
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
+  <meta name="keywords" content="liveReload,">
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
 
 
 
@@ -85,14 +85,16 @@
 
 
 <meta name="description" content="对于 liveReload 我想做前端的同学应该很熟悉，修改代码 -&amp;gt; 切换到浏览器 -&amp;gt; 刷新页面 现在大概没有多少人会在开发的时候这么做了吧。最近闲来无事，学习 Python，做些小练习能加快学习进度，于是想到了 liveReload，就决定自己做一个，放在我的 GitHub 上。">
+<meta name="keywords" content="liveReload">
 <meta property="og:type" content="article">
-<meta property="og:title" content="动手写一个"liveReload"">
+<meta property="og:title" content="动手写一个&quot;liveReload&quot;">
 <meta property="og:url" content="http://yoursite.com/2017/05/10/python-hot-reload/index.html">
-<meta property="og:site_name" content="Hanrenguang's blog">
+<meta property="og:site_name" content="Hanrenguang&#39;s blog">
 <meta property="og:description" content="对于 liveReload 我想做前端的同学应该很熟悉，修改代码 -&amp;gt; 切换到浏览器 -&amp;gt; 刷新页面 现在大概没有多少人会在开发的时候这么做了吧。最近闲来无事，学习 Python，做些小练习能加快学习进度，于是想到了 liveReload，就决定自己做一个，放在我的 GitHub 上。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-05-10T06:51:41.543Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="动手写一个"liveReload"">
+<meta name="twitter:title" content="动手写一个&quot;liveReload&quot;">
 <meta name="twitter:description" content="对于 liveReload 我想做前端的同学应该很熟悉，修改代码 -&amp;gt; 切换到浏览器 -&amp;gt; 刷新页面 现在大概没有多少人会在开发的时候这么做了吧。最近闲来无事，学习 Python，做些小练习能加快学习进度，于是想到了 liveReload，就决定自己做一个，放在我的 GitHub 上。">
 
 
@@ -121,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/10/python-hot-reload/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/10/python-hot-reload/">
 
 
 
@@ -130,7 +132,7 @@
   <title> 动手写一个"liveReload" | Hanrenguang's blog </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -151,12 +153,12 @@
   <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
 
   <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
+    <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">Hanrenguang's blog</span>
       <span class="logo-line-after"><i></i></span>
@@ -185,7 +187,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -195,7 +197,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -205,7 +207,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -215,7 +217,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -249,18 +251,18 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/10/python-hot-reload/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <span style="display:none" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
     <meta itemprop="name" content="韩仁光">
     <meta itemprop="description" content="">
     <meta itemprop="image" content="/uploads/avatar.jpg">
   </span>
 
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+  <span style="display:none" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="Hanrenguang's blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+    <span style="display:none" itemprop="logo" itemscope="" itemtype="http://schema.org/ImageObject">
       <img style="display:none;" itemprop="url image" alt="Hanrenguang's blog" src="">
     </span>
   </span>
@@ -325,24 +327,24 @@
       
 
       
-        <p>对于 <code>liveReload</code> 我想做前端的同学应该很熟悉，<code>修改代码 -&gt; 切换到浏览器 -&gt; 刷新页面</code> 现在大概没有多少人会在开发的时候这么做了吧。最近闲来无事，学习 <code>Python</code>，做些小练习能加快学习进度，于是想到了 <code>liveReload</code>，就决定自己做一个，放在我的 <a href="https://github.com/hanrenguang/python-live-reload" target="_blank" rel="external">GitHub</a> 上。</p>
+        <p>对于 <code>liveReload</code> 我想做前端的同学应该很熟悉，<code>修改代码 -&gt; 切换到浏览器 -&gt; 刷新页面</code> 现在大概没有多少人会在开发的时候这么做了吧。最近闲来无事，学习 <code>Python</code>，做些小练习能加快学习进度，于是想到了 <code>liveReload</code>，就决定自己做一个，放在我的 <a href="https://github.com/hanrenguang/python-live-reload" target="_blank" rel="noopener">GitHub</a> 上。</p>
 <a id="more"></a>
 <h2 id="开始之前"><a href="#开始之前" class="headerlink" title="开始之前"></a>开始之前</h2><p>在开始之前，把整个的原理给弄清楚。</p>
 <p>这里面主要用到技术就是 <code>websocket</code>，相信大家都有所了解。整体的思路应该是这样的：打开websocket服务器 -&gt; 等待客户端连接 -&gt; 当文件有变动时通知客户端 -&gt; 页面刷新。</p>
 <h2 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h2><p>Python3.5，windows10系统</p>
 <h2 id="开工"><a href="#开工" class="headerlink" title="开工"></a>开工</h2><h3 id="建立websocket连接"><a href="#建立websocket连接" class="headerlink" title="建立websocket连接"></a>建立websocket连接</h3><p>首先下载一个封装好的 <code>websockets</code> 库：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pip install websockets</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install websockets</span><br></pre></td></tr></table></figure>
 <p>根据官方的文档，很快就写好了一个简单的websocket服务器：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> sys, asyncio, websockets</div><div class="line"></div><div class="line"><span class="comment"># send changed message</span></div><div class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">def</span> <span class="title">reload</span><span class="params">(websocket, path)</span>:</span></div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        <span class="keyword">while</span>  <span class="keyword">True</span>:</div><div class="line">            msg = <span class="string">'hello world!'</span></div><div class="line">            <span class="keyword">await</span> websocket.send(msg)</div><div class="line">            <span class="keyword">await</span> asyncio.sleep(<span class="number">1</span>)</div><div class="line">    <span class="keyword">except</span>:</div><div class="line">        sys.exit()</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</div><div class="line">    <span class="comment"># run websocket server</span></div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        start_server = websockets.serve(reload, <span class="string">'127.0.0.1'</span>, <span class="number">8080</span>)</div><div class="line">        asyncio.get_event_loop().run_until_complete(start_server)</div><div class="line">        asyncio.get_event_loop().run_forever()</div><div class="line">    <span class="keyword">except</span> KeyboardInterrupt:</div><div class="line">        sys.exit()</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys, asyncio, websockets</span><br><span class="line"></span><br><span class="line"><span class="comment"># send changed message</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">def</span> <span class="title">reload</span><span class="params">(websocket, path)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">while</span>  <span class="keyword">True</span>:</span><br><span class="line">            msg = <span class="string">'hello world!'</span></span><br><span class="line">            <span class="keyword">await</span> websocket.send(msg)</span><br><span class="line">            <span class="keyword">await</span> asyncio.sleep(<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        sys.exit()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    <span class="comment"># run websocket server</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        start_server = websockets.serve(reload, <span class="string">'127.0.0.1'</span>, <span class="number">8080</span>)</span><br><span class="line">        asyncio.get_event_loop().run_until_complete(start_server)</span><br><span class="line">        asyncio.get_event_loop().run_forever()</span><br><span class="line">    <span class="keyword">except</span> KeyboardInterrupt:</span><br><span class="line">        sys.exit()</span><br></pre></td></tr></table></figure>
 <p>新建一个 <code>index.html</code> 文件，加入如下脚本：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ws = <span class="keyword">new</span> WebSocket(<span class="string">"ws://127.0.0.1:8080/"</span>);</div><div class="line">ws.onmessage = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> data = event.data;</div><div class="line">    <span class="built_in">console</span>.log(data);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ws = <span class="keyword">new</span> WebSocket(<span class="string">"ws://127.0.0.1:8080/"</span>);</span><br><span class="line">ws.onmessage = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> data = event.data;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>然后先运行服务器脚本，再打开 <code>index.html</code>，即可在控制台看到，每隔1秒打印出一个”hello world!”。OK，至此 <code>websocket</code> 连接建立好了。</p>
 <h3 id="监听文件修改"><a href="#监听文件修改" class="headerlink" title="监听文件修改"></a>监听文件修改</h3><p>建立 <code>websocket</code> 连接的目的是通知浏览器有文件更新，需要刷新页面。既如此，就需要我们监听文件的变化。</p>
 <p>最开始的时候，我希望能借助现有的库来解决这个问题，于是找到了 <code>watchdog</code>，一个用于监听文件变化的库。可是在windows下多次实验都失败了，网上也搜了很久，于是决定放弃他，自己动手写一个简单的。</p>
 <p>不知大家有没有了解过计算文件MD5值的算法，只要文件内容不同，计算出来的MD5值也是不同的，关于MD5的算法我也不太了解，有兴趣的同学可以自行搜索。Python里有现成的模块，直接拿来用即可，下面是个简单的例子：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> hashlib</div><div class="line"></div><div class="line"><span class="comment"># get the MD5 value of file</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getFileMD5</span><span class="params">(file)</span>:</span></div><div class="line">    <span class="comment"># 拿到MD5对象实例</span></div><div class="line">    md5 = hashlib.md5()</div><div class="line">    f = open(file, <span class="string">'rb'</span>)</div><div class="line">    <span class="comment"># 分块读取文件内容</span></div><div class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">        chunk = f.read(<span class="number">1024</span>)</div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> chunk:</div><div class="line">            f.close()</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        md5.update(chunk)</div><div class="line">    <span class="comment"># 返回最终计算结果</span></div><div class="line">    <span class="keyword">return</span> md5.hexdigest()</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line"><span class="comment"># get the MD5 value of file</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getFileMD5</span><span class="params">(file)</span>:</span></span><br><span class="line">    <span class="comment"># 拿到MD5对象实例</span></span><br><span class="line">    md5 = hashlib.md5()</span><br><span class="line">    f = open(file, <span class="string">'rb'</span>)</span><br><span class="line">    <span class="comment"># 分块读取文件内容</span></span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">        chunk = f.read(<span class="number">1024</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> chunk:</span><br><span class="line">            f.close()</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        md5.update(chunk)</span><br><span class="line">    <span class="comment"># 返回最终计算结果</span></span><br><span class="line">    <span class="keyword">return</span> md5.hexdigest()</span><br></pre></td></tr></table></figure>
 <p>接下来只需要在md5值发生改变时，发送通知给页面即可。</p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>这个实现非常简单，目的是学习Python并了解下最初的前端页面自动刷新技术的实现。完整代码我就不贴了，想了解的同学欢迎来我的<a href="https://github.com/hanrenguang/python-live-reload" target="_blank" rel="external">GitHub</a>。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>这个实现非常简单，目的是学习Python并了解下最初的前端页面自动刷新技术的实现。完整代码我就不贴了，想了解的同学欢迎来我的<a href="https://github.com/hanrenguang/python-live-reload" target="_blank" rel="noopener">GitHub</a>。</p>
 
       
     </div>
@@ -435,7 +437,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -445,10 +447,8 @@
       
 
       <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/uploads/avatar.jpg"
-               alt="韩仁光" />
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="韩仁光">
           <p class="site-author-name" itemprop="name">韩仁光</p>
           <p class="site-description motion-element" itemprop="description">专心做技术</p>
         </div>
@@ -521,7 +521,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
   <span itemprop="copyrightYear">2018</span>

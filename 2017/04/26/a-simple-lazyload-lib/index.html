@@ -6,15 +6,15 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -29,7 +29,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -63,21 +63,21 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="JavaScript," />
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
+  <meta name="keywords" content="JavaScript,">
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
 
 
 
@@ -85,11 +85,13 @@
 
 
 <meta name="description" content="最近参加了不少前端实习生笔试，现写demo各种忘记，真是哭晕在厕所… 所以平时对DOM要十分熟练。嗯.. 所以，今天来实现一个图片懒加载库lazyload.js，具体代码请看我的 github。">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何实现一个图片懒加载库">
 <meta property="og:url" content="http://yoursite.com/2017/04/26/a-simple-lazyload-lib/index.html">
-<meta property="og:site_name" content="Hanrenguang's blog">
+<meta property="og:site_name" content="Hanrenguang&#39;s blog">
 <meta property="og:description" content="最近参加了不少前端实习生笔试，现写demo各种忘记，真是哭晕在厕所… 所以平时对DOM要十分熟练。嗯.. 所以，今天来实现一个图片懒加载库lazyload.js，具体代码请看我的 github。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-08-25T10:43:05.917Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何实现一个图片懒加载库">
@@ -121,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/26/a-simple-lazyload-lib/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/26/a-simple-lazyload-lib/">
 
 
 
@@ -130,7 +132,7 @@
   <title> 如何实现一个图片懒加载库 | Hanrenguang's blog </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -151,12 +153,12 @@
   <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
 
   <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
+    <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">Hanrenguang's blog</span>
       <span class="logo-line-after"><i></i></span>
@@ -185,7 +187,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -195,7 +197,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -205,7 +207,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -215,7 +217,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -249,18 +251,18 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/26/a-simple-lazyload-lib/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <span style="display:none" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
     <meta itemprop="name" content="韩仁光">
     <meta itemprop="description" content="">
     <meta itemprop="image" content="/uploads/avatar.jpg">
   </span>
 
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+  <span style="display:none" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="Hanrenguang's blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+    <span style="display:none" itemprop="logo" itemscope="" itemtype="http://schema.org/ImageObject">
       <img style="display:none;" itemprop="url image" alt="Hanrenguang's blog" src="">
     </span>
   </span>
@@ -325,12 +327,12 @@
       
 
       
-        <p>最近参加了不少前端实习生笔试，现写<code>demo</code>各种忘记，真是哭晕在厕所… 所以平时对<code>DOM</code>要十分熟练。<br>嗯.. 所以，今天来实现一个图片懒加载库<code>lazyload.js</code>，具体代码请看我的 <a href="https://github.com/hanrenguang/lazyload" target="_blank" rel="external">github</a>。</p>
+        <p>最近参加了不少前端实习生笔试，现写<code>demo</code>各种忘记，真是哭晕在厕所… 所以平时对<code>DOM</code>要十分熟练。<br>嗯.. 所以，今天来实现一个图片懒加载库<code>lazyload.js</code>，具体代码请看我的 <a href="https://github.com/hanrenguang/lazyload" target="_blank" rel="noopener">github</a>。</p>
 <a id="more"></a>
 <h2 id="需要实现的效果"><a href="#需要实现的效果" class="headerlink" title="需要实现的效果"></a>需要实现的效果</h2><p>相信大家都在网页中体验过图片懒加载，它应该有这样的效果：当图片进入我们的可视区时，加载这些图片。其原因相信大家都懂的——提高用户体验。</p>
 <p>那么在代码中，我们就应该实现一下几点功能：<br>1.当页面加载完成时，先对可视区的图片进行加载；<br>2.给 <code>scroll</code> 及 <code>resize</code> 事件添加监听；<br>3.当上述事件触发时，对在可视区的图片进行加载，并将加载过的图片移除。</p>
 <h2 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h2><p>经过上面的分析，我们一步一步来实现图片懒加载。首先，我们先制定一些规则：<br>1.需要懒加载的图片标签应该带有值为 <code>lazyload-img</code> 的类；<br>2.需要懒加载的图片标签应该带有属性 <code>data-src</code> ，其值为图片的链接。</p>
-<h3 id="定义懒加载构造函数"><a href="#定义懒加载构造函数" class="headerlink" title="定义懒加载构造函数"></a>定义懒加载构造函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">LazyLoad</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// 将所有需要懒加载的图片缓存在 imgList 数组中</span></div><div class="line">    <span class="keyword">this</span>.imgList = [].slice.call(<span class="built_in">document</span>.querySelectorAll(<span class="string">".lazyload-img"</span>));</div><div class="line">    <span class="comment">// 进行初始化操作</span></div><div class="line">    <span class="keyword">this</span>.init();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="定义懒加载构造函数"><a href="#定义懒加载构造函数" class="headerlink" title="定义懒加载构造函数"></a>定义懒加载构造函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">LazyLoad</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 将所有需要懒加载的图片缓存在 imgList 数组中</span></span><br><span class="line">    <span class="keyword">this</span>.imgList = [].slice.call(<span class="built_in">document</span>.querySelectorAll(<span class="string">".lazyload-img"</span>));</span><br><span class="line">    <span class="comment">// 进行初始化操作</span></span><br><span class="line">    <span class="keyword">this</span>.init();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>接下来想想我们的 <code>init</code> 方法应该做些什么？图片的加载是通过事件触发实现的，所以我在初始化的方法主要做的事情就是添加事件监听。</p>
 <p>把 <code>init</code> 方法的实现放到最后来讲，接下来先来实现判断图片是否在可视区的方法 <code>isInViewport</code>。</p>
 <h3 id="isInViewport方法的实现"><a href="#isInViewport方法的实现" class="headerlink" title="isInViewport方法的实现"></a>isInViewport方法的实现</h3><p>在上代码前先来讲讲 <code>getBoundingClientRect</code> 这货，不知道大家对她了解多少。MDN上给出的定义是这样的：</p>
@@ -338,17 +340,17 @@
 <li>Element.getBoundingClientRect()方法返回元素的大小及其相对于视口的位置。</li>
 </ul>
 <p>什么意思呢，就是调用了这个方法后，返回了一个包含元素的宽高及其相对于浏览器视口左上角的位置信息。嗯.. 没看懂:( 简单点说呢，这个方法返回了一个对象，长这样：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">bottom</span>: xx,</div><div class="line">    <span class="attr">left</span>: xx,</div><div class="line">    <span class="attr">right</span>: xx,</div><div class="line">    <span class="attr">top</span>: xx,</div><div class="line">    <span class="attr">height</span>: xx,</div><div class="line">    <span class="attr">width</span>: xx</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>如果还是不太明白，可以直接到<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect" target="_blank" rel="external">MDN</a>看看。建议大家直接在控制台试试，说得再多不如动手试一试。<br>那了解这个方法后，有啥用？当然是用来判断图片是否在可视区咯，那我们来看看判断的逻辑：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">LazyLoad.prototype.isInViewport = <span class="function"><span class="keyword">function</span> (<span class="params">img</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> clientH = <span class="built_in">document</span>.documentElement.clientHeight, <span class="comment">// 浏览器视口高度</span></div><div class="line">        clientW = <span class="built_in">document</span>.documentElement.clientWidth, <span class="comment">// 浏览器视口宽度</span></div><div class="line">        imgPosOb = img.getBoundingClientRect(), <span class="comment">// 获取img的位置信息</span></div><div class="line">        imgT = imgPosOb.top,</div><div class="line">        imgL = imgPosOb.left,</div><div class="line">        imgH = imgPosOb.height,</div><div class="line">        imgW = imgPosOb.width;</div><div class="line"></div><div class="line">    <span class="comment">// 判断逻辑</span></div><div class="line">    <span class="comment">// 不清楚的同学可以在草稿纸上画个图</span></div><div class="line">    <span class="keyword">if</span>( (imgT &gt; -imgH &amp;&amp; imgT &lt; clientH) &amp;&amp; (imgL &gt; -imgW &amp;&amp; imgL &lt; clientW) ) &#123;</div><div class="line">        <span class="comment">// inViewport</span></div><div class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    bottom: xx,</span><br><span class="line">    left: xx,</span><br><span class="line">    right: xx,</span><br><span class="line">    top: xx,</span><br><span class="line">    height: xx,</span><br><span class="line">    width: xx</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果还是不太明白，可以直接到<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect" target="_blank" rel="noopener">MDN</a>看看。建议大家直接在控制台试试，说得再多不如动手试一试。<br>那了解这个方法后，有啥用？当然是用来判断图片是否在可视区咯，那我们来看看判断的逻辑：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">LazyLoad.prototype.isInViewport = <span class="function"><span class="keyword">function</span> (<span class="params">img</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> clientH = <span class="built_in">document</span>.documentElement.clientHeight, <span class="comment">// 浏览器视口高度</span></span><br><span class="line">        clientW = <span class="built_in">document</span>.documentElement.clientWidth, <span class="comment">// 浏览器视口宽度</span></span><br><span class="line">        imgPosOb = img.getBoundingClientRect(), <span class="comment">// 获取img的位置信息</span></span><br><span class="line">        imgT = imgPosOb.top,</span><br><span class="line">        imgL = imgPosOb.left,</span><br><span class="line">        imgH = imgPosOb.height,</span><br><span class="line">        imgW = imgPosOb.width;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 判断逻辑</span></span><br><span class="line">    <span class="comment">// 不清楚的同学可以在草稿纸上画个图</span></span><br><span class="line">    <span class="keyword">if</span>( (imgT &gt; -imgH &amp;&amp; imgT &lt; clientH) &amp;&amp; (imgL &gt; -imgW &amp;&amp; imgL &lt; clientW) ) &#123;</span><br><span class="line">        <span class="comment">// inViewport</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>我们还有什么功能没实现？当然还有最重要的加载！没有这一步还说个pi。</p>
 <h3 id="实现图片加载"><a href="#实现图片加载" class="headerlink" title="实现图片加载"></a>实现图片加载</h3><p>这一步没啥好说的，直接上代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 参数 imgList 是要加载的图片列表</span></div><div class="line">LazyLoad.prototype.loadImg = <span class="function"><span class="keyword">function</span> (<span class="params">inVpImgList</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> len = inVpImgList.length;</div><div class="line">    <span class="keyword">var</span> src = <span class="string">''</span>;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</div><div class="line">        src = inVpImgList[i].getAttribute(<span class="string">"data-src"</span>);</div><div class="line">        inVpImgList[i].src = src;</div><div class="line">        inVpImgList[i].removeAttribute(<span class="string">"data-src"</span>);</div><div class="line">        <span class="keyword">this</span>.removeItem(inVpImgList[i]);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// 不要忘了这一步</span></div><div class="line"><span class="comment">// 把加载过的图片移除</span></div><div class="line">LazyLoad.prototype.removeItem = <span class="function"><span class="keyword">function</span> (<span class="params">img</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> idx = <span class="keyword">this</span>.imgList.indexOf(img);</div><div class="line">    <span class="keyword">if</span>(idx &gt; <span class="number">-1</span>) &#123;</div><div class="line">        <span class="keyword">this</span>.imgList.splice(idx, <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 参数 imgList 是要加载的图片列表</span></span><br><span class="line">LazyLoad.prototype.loadImg = <span class="function"><span class="keyword">function</span> (<span class="params">inVpImgList</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> len = inVpImgList.length;</span><br><span class="line">    <span class="keyword">var</span> src = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">        src = inVpImgList[i].getAttribute(<span class="string">"data-src"</span>);</span><br><span class="line">        inVpImgList[i].src = src;</span><br><span class="line">        inVpImgList[i].removeAttribute(<span class="string">"data-src"</span>);</span><br><span class="line">        <span class="keyword">this</span>.removeItem(inVpImgList[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不要忘了这一步</span></span><br><span class="line"><span class="comment">// 把加载过的图片移除</span></span><br><span class="line">LazyLoad.prototype.removeItem = <span class="function"><span class="keyword">function</span> (<span class="params">img</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> idx = <span class="keyword">this</span>.imgList.indexOf(img);</span><br><span class="line">    <span class="keyword">if</span>(idx &gt; <span class="number">-1</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.imgList.splice(idx, <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h3 id="init方法的实现"><a href="#init方法的实现" class="headerlink" title="init方法的实现"></a>init方法的实现</h3><p>最后，来完成我们的初始化方法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">LazyLoad.prototype.init = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">    <span class="comment">// callback函数即我们定义的事件触发后的回调函数</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">callback</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> imgInVp = [];</div><div class="line">        <span class="keyword">var</span> len = self.imgList.length;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</div><div class="line">            <span class="keyword">if</span>(self.isInViewport(self.imgList[i])) &#123;</div><div class="line">                imgInVp.push(self.imgList[i]);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        self.loadImg(imgInVp);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    callback();</div><div class="line"></div><div class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">"scroll"</span>, callback, <span class="literal">false</span>);</div><div class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">"resize"</span>, callback, <span class="literal">false</span>);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">LazyLoad.prototype.init = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> self = <span class="keyword">this</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// callback函数即我们定义的事件触发后的回调函数</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">callback</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> imgInVp = [];</span><br><span class="line">        <span class="keyword">var</span> len = self.imgList.length;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(self.isInViewport(self.imgList[i])) &#123;</span><br><span class="line">                imgInVp.push(self.imgList[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        self.loadImg(imgInVp);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    callback();</span><br><span class="line"></span><br><span class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">"scroll"</span>, callback, <span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">"resize"</span>, callback, <span class="literal">false</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>可能有哪位细心的小伙伴会发现我在 <code>init</code> 方法中调用了一次 <code>callback</code>。让我们再回头看看功能分析的第一点，你就明白了。那到这咱就完事了？不，还得优化一下。</p>
 <h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>我们知道当我们在短时间内，连续地改变浏览器窗口大小或者滚动页面，会连续多次地触发 <code>resize</code> 和 <code>scroll</code> 事件。而这是我们可以优化的地方，这里呢，我们使用函数去抖，调整后的代码如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">LazyLoad.prototype.init = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> self = <span class="keyword">this</span>,</div><div class="line">        timer = <span class="literal">null</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">callback</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        timer &amp;&amp; clearTimeout(timer);</div><div class="line">        timer = setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> imgInVp = [];</div><div class="line">            <span class="keyword">var</span> len = self.imgList.length;</div><div class="line"></div><div class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</div><div class="line">                <span class="keyword">if</span>(self.isInViewport(self.imgList[i])) &#123;</div><div class="line">                    imgInVp.push(self.imgList[i]);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            self.loadImg(imgInVp);</div><div class="line">        &#125;, <span class="number">100</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    callback();</div><div class="line"></div><div class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">"scroll"</span>, callback, <span class="literal">false</span>);</div><div class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">"resize"</span>, callback, <span class="literal">false</span>);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">LazyLoad.prototype.init = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> self = <span class="keyword">this</span>,</span><br><span class="line">        timer = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">callback</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        timer &amp;&amp; clearTimeout(timer);</span><br><span class="line">        timer = setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> imgInVp = [];</span><br><span class="line">            <span class="keyword">var</span> len = self.imgList.length;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(self.isInViewport(self.imgList[i])) &#123;</span><br><span class="line">                    imgInVp.push(self.imgList[i]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            self.loadImg(imgInVp);</span><br><span class="line">        &#125;, <span class="number">100</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    callback();</span><br><span class="line"></span><br><span class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">"scroll"</span>, callback, <span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">"resize"</span>, callback, <span class="literal">false</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>至此，也算是实现了一个简单的图片懒加载库了，如有不足之处欢迎指正，大家一起交流交流 :)</p>
 
       
@@ -392,7 +394,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/10/python-hot-reload/" rel="prev" title="动手写一个"liveReload"">
+              <a href="/2017/05/10/python-hot-reload/" rel="prev" title="动手写一个" livereload""="">
                 动手写一个"liveReload" <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -442,7 +444,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -452,10 +454,8 @@
       
 
       <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/uploads/avatar.jpg"
-               alt="韩仁光" />
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="韩仁光">
           <p class="site-author-name" itemprop="name">韩仁光</p>
           <p class="site-description motion-element" itemprop="description">专心做技术</p>
         </div>
@@ -528,7 +528,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
   <span itemprop="copyrightYear">2018</span>

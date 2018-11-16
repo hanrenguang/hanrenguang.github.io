@@ -6,15 +6,15 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -29,7 +29,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -63,21 +63,21 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="canvas," />
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
+  <meta name="keywords" content="canvas,">
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
 
 
 
@@ -85,11 +85,13 @@
 
 
 <meta name="description" content="最近参加了 baidu_ife_2017，里面有个任务是用 canvas 写贪吃蛇游戏，游戏有三种玩法，不过现在我也只是完成了前两种（普通模式和过关模式），想记录一下遇到的几个问题和解决方法，各位走过路过也可以给些建议。可以到此试玩一下：Snake Online">
+<meta name="keywords" content="canvas">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用canvas写贪吃蛇遇到的问题">
 <meta property="og:url" content="http://yoursite.com/2017/03/05/Snake-Online/index.html">
-<meta property="og:site_name" content="Hanrenguang's blog">
+<meta property="og:site_name" content="Hanrenguang&#39;s blog">
 <meta property="og:description" content="最近参加了 baidu_ife_2017，里面有个任务是用 canvas 写贪吃蛇游戏，游戏有三种玩法，不过现在我也只是完成了前两种（普通模式和过关模式），想记录一下遇到的几个问题和解决方法，各位走过路过也可以给些建议。可以到此试玩一下：Snake Online">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-04-26T09:05:25.054Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用canvas写贪吃蛇遇到的问题">
@@ -121,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/03/05/Snake-Online/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/05/Snake-Online/">
 
 
 
@@ -130,7 +132,7 @@
   <title> 用canvas写贪吃蛇遇到的问题 | Hanrenguang's blog </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -151,12 +153,12 @@
   <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
 
   <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
+    <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">Hanrenguang's blog</span>
       <span class="logo-line-after"><i></i></span>
@@ -185,7 +187,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -195,7 +197,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -205,7 +207,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -215,7 +217,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -249,18 +251,18 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/05/Snake-Online/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <span style="display:none" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
     <meta itemprop="name" content="韩仁光">
     <meta itemprop="description" content="">
     <meta itemprop="image" content="/uploads/avatar.jpg">
   </span>
 
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+  <span style="display:none" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="Hanrenguang's blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+    <span style="display:none" itemprop="logo" itemscope="" itemtype="http://schema.org/ImageObject">
       <img style="display:none;" itemprop="url image" alt="Hanrenguang's blog" src="">
     </span>
   </span>
@@ -325,15 +327,15 @@
       
 
       
-        <p>最近参加了 <code>baidu_ife_2017</code>，里面有个任务是用 <code>canvas</code> 写贪吃蛇游戏，游戏有三种玩法，不过现在我也只是完成了前两种（普通模式和过关模式），想记录一下遇到的几个问题和解决方法，各位走过路过也可以给些建议。可以到此试玩一下：<a href="https://webgg-demo.github.io/Snake_Online/src/" target="_blank" rel="external">Snake Online</a></p>
+        <p>最近参加了 <code>baidu_ife_2017</code>，里面有个任务是用 <code>canvas</code> 写贪吃蛇游戏，游戏有三种玩法，不过现在我也只是完成了前两种（普通模式和过关模式），想记录一下遇到的几个问题和解决方法，各位走过路过也可以给些建议。可以到此试玩一下：<a href="https://webgg-demo.github.io/Snake_Online/src/" target="_blank" rel="noopener">Snake Online</a></p>
 <a id="more"></a>
 <h2 id="如何让蛇动起来"><a href="#如何让蛇动起来" class="headerlink" title="如何让蛇动起来"></a>如何让蛇动起来</h2><p>用 <code>canvas</code> 来写游戏，无非就是设置个定时器，不断清空画布然后重绘。而让蛇动起来，让其身体每一截都往前移动，这显然是非常麻烦的一件事，比如蛇身现在弯弯曲曲，而其每一截都要向爬行方向移动一格，还需要给每一截重新计算下一步的位置。在我看来是十分麻烦的一件事，于是思索一番，发现蛇每次只是移动一格，那么如果我只改变最后一截，让其位置变为爬行方向的下一格不就解决了吗。想到这，我用一个数组来维护每一截的位置对象：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> Snake(args) &#123;</div><div class="line">	this.bodyArr = [];</div><div class="line">	// 每次移动蛇头x,y值改变量</div><div class="line">	this.dx = 0;</div><div class="line">	this.dy = 0;</div><div class="line">	//...</div><div class="line">&#125;</div><div class="line"></div><div class="line">Snake.prototype.setBodyArr = <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">	var newX = this.bodyArr[0].x + this.dx;</div><div class="line">	var newY = this.bodyArr[0].y + this.dy;</div><div class="line">	// 移除最后一截</div><div class="line">	var temp = this.bodyArr.pop();</div><div class="line">	// 将下一次要移动的位置插入到位置数组中</div><div class="line">	this.bodyArr.unshift(&#123;</div><div class="line">		x: newX,</div><div class="line">		y: newY</div><div class="line">	&#125;);</div><div class="line">	// ...</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> Snake(args) &#123;</span><br><span class="line">	this.bodyArr = [];</span><br><span class="line">	// 每次移动蛇头x,y值改变量</span><br><span class="line">	this.dx = 0;</span><br><span class="line">	this.dy = 0;</span><br><span class="line">	//...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Snake.prototype.setBodyArr = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">	var newX = this.bodyArr[0].x + this.dx;</span><br><span class="line">	var newY = this.bodyArr[0].y + this.dy;</span><br><span class="line">	// 移除最后一截</span><br><span class="line">	var temp = this.bodyArr.pop();</span><br><span class="line">	// 将下一次要移动的位置插入到位置数组中</span><br><span class="line">	this.bodyArr.unshift(&#123;</span><br><span class="line">		x: newX,</span><br><span class="line">		y: newY</span><br><span class="line">	&#125;);</span><br><span class="line">	// ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="食物的随机位置如何设置"><a href="#食物的随机位置如何设置" class="headerlink" title="食物的随机位置如何设置"></a>食物的随机位置如何设置</h2><p>或许大家觉得这个很简单，不就是产生个随机数，然后避开蛇身的位置就完事了么。我也是这么想的，但是想动手时却犯难了，我觉得应该是可以优化的。毕竟每产生一次随机数，就要和蛇身每一截去比较一次，重叠了又要重新产生随机数再全部比较一次… 虽然废不了多少时间，但总觉得可以优化，于是在 <code>github</code> 上找别人的解决方案，发现很多人都是使用一个二维数组来维护地图上每个位置的状态的，觉得不错于是将其用上了：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> Snake(args) &#123;</div><div class="line">	// position[x][y] = 0 为空，</div><div class="line">	// position[x][y] = 1 为蛇身，</div><div class="line">	// position[x][y] = 2 为食物</div><div class="line">	this.position = creat2dArr(width, height);</div><div class="line"></div><div class="line">	//...</div><div class="line">&#125;</div><div class="line">// 产生一个值全为0的二维数组</div><div class="line"><span class="keyword">function</span> creat2dArr(width, height) &#123;</div><div class="line">	var arr = new Array(width);</div><div class="line"></div><div class="line">	<span class="keyword">for</span>(var j = 0; j &lt; width; j++) &#123;</div><div class="line">		arr[j] = new Array(height);</div><div class="line">		<span class="keyword">for</span>(var k = 0; k &lt; height; k++) &#123;</div><div class="line">			arr[j][k] = 0;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="built_in">return</span> arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> Snake(args) &#123;</span><br><span class="line">	// position[x][y] = 0 为空，</span><br><span class="line">	// position[x][y] = 1 为蛇身，</span><br><span class="line">	// position[x][y] = 2 为食物</span><br><span class="line">	this.position = creat2dArr(width, height);</span><br><span class="line"></span><br><span class="line">	//...</span><br><span class="line">&#125;</span><br><span class="line">// 产生一个值全为0的二维数组</span><br><span class="line"><span class="keyword">function</span> creat2dArr(width, height) &#123;</span><br><span class="line">	var arr = new Array(width);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(var j = 0; j &lt; width; j++) &#123;</span><br><span class="line">		arr[j] = new Array(height);</span><br><span class="line">		<span class="keyword">for</span>(var k = 0; k &lt; height; k++) &#123;</span><br><span class="line">			arr[j][k] = 0;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>每次只需比较 <code>position[x][y]</code> 的值即可知道该位置的状态。</p>
 <h2 id="蛇爬行方向的改变"><a href="#蛇爬行方向的改变" class="headerlink" title="蛇爬行方向的改变"></a>蛇爬行方向的改变</h2><p>游戏是通过方向键来控制的，那么如果玩家在两次重绘之间，按下了多次不同的方向键，那么蛇下一次爬行的方向该定为什么？怎么解决这个冲突？我想到的是用一个队列来保存玩家的输入，每次重绘前取出队列的首项，如果该方向合理（即不是与当前方向相同或相反），则修改下一步的方向，通过这种方式，玩家的每一次输入都可以得到响应，只是快与慢的问题罢了。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> Snake(args) &#123;</div><div class="line">	// 爬行方向(<span class="string">"up"</span>: 上，<span class="string">"down"</span>: 下，<span class="string">"left"</span>: 左，<span class="string">"right"</span>: 右)</div><div class="line">	this.directionQueue = [];</div><div class="line">	this.nextDirection = <span class="string">"up"</span>; // 定义初始爬行方向为上</div><div class="line"></div><div class="line">	//...</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 设置下一次爬行的方向</div><div class="line">Snake.prototype.setNextDirection = <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">	<span class="keyword">if</span>(this.directionQueue.length === 0) &#123; // 如果用户没有输入下一个方向则返回</div><div class="line">		<span class="built_in">return</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	var temp = <span class="string">""</span>;</div><div class="line"></div><div class="line">	<span class="keyword">while</span>(this.directionQueue.length !== 0) &#123;</div><div class="line">		<span class="keyword">if</span>((temp = this.directionQueue.shift()) !== this.nextDirection) &#123;</div><div class="line">			// 判断方向合法性</div><div class="line">			<span class="keyword">if</span>(this.judgeLegality(temp)) &#123;</div><div class="line">				this.nextDirection = temp;</div><div class="line">				// 设置dx与dy的值</div><div class="line">				<span class="keyword">if</span>(temp === <span class="string">"up"</span>) &#123;</div><div class="line">					this.dx = 0;</div><div class="line">					this.dy = -1;</div><div class="line">				&#125; <span class="keyword">else</span> <span class="keyword">if</span>(temp === <span class="string">"down"</span>) &#123;</div><div class="line">					this.dx = 0;</div><div class="line">					this.dy = 1;</div><div class="line">				&#125; <span class="keyword">else</span> <span class="keyword">if</span>(temp === <span class="string">"left"</span>) &#123;</div><div class="line">					this.dx = -1;</div><div class="line">					this.dy = 0;</div><div class="line">				&#125; <span class="keyword">else</span> &#123;</div><div class="line">					this.dx = 1;</div><div class="line">					this.dy = 0;</div><div class="line">				&#125;</div><div class="line">				<span class="built_in">break</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// 页面加载完成后</div><div class="line">window.onload = <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">	var snake = new Snake(args);</div><div class="line">	// 注册键盘事件</div><div class="line">	onEvent(document, <span class="string">"keydown"</span>, <span class="keyword">function</span> (e) &#123;</div><div class="line">		e = e || window.event;</div><div class="line"></div><div class="line">		<span class="keyword">if</span>(e.keyCode === 37) &#123; // left</div><div class="line">			snake.directionQueue.push(<span class="string">"left"</span>);</div><div class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span>(e.keyCode === 38) &#123; // up</div><div class="line">			snake.directionQueue.push(<span class="string">"up"</span>);</div><div class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span>(e.keyCode === 39) &#123; // right</div><div class="line">			snake.directionQueue.push(<span class="string">"right"</span>);</div><div class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span>(e.keyCode === 40) &#123; // down</div><div class="line">			snake.directionQueue.push(<span class="string">"down"</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> Snake(args) &#123;</span><br><span class="line">	// 爬行方向(<span class="string">"up"</span>: 上，<span class="string">"down"</span>: 下，<span class="string">"left"</span>: 左，<span class="string">"right"</span>: 右)</span><br><span class="line">	this.directionQueue = [];</span><br><span class="line">	this.nextDirection = <span class="string">"up"</span>; // 定义初始爬行方向为上</span><br><span class="line"></span><br><span class="line">	//...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 设置下一次爬行的方向</span><br><span class="line">Snake.prototype.setNextDirection = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">	<span class="keyword">if</span>(this.directionQueue.length === 0) &#123; // 如果用户没有输入下一个方向则返回</span><br><span class="line">		<span class="built_in">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	var temp = <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(this.directionQueue.length !== 0) &#123;</span><br><span class="line">		<span class="keyword">if</span>((temp = this.directionQueue.shift()) !== this.nextDirection) &#123;</span><br><span class="line">			// 判断方向合法性</span><br><span class="line">			<span class="keyword">if</span>(this.judgeLegality(temp)) &#123;</span><br><span class="line">				this.nextDirection = temp;</span><br><span class="line">				// 设置dx与dy的值</span><br><span class="line">				<span class="keyword">if</span>(temp === <span class="string">"up"</span>) &#123;</span><br><span class="line">					this.dx = 0;</span><br><span class="line">					this.dy = -1;</span><br><span class="line">				&#125; <span class="keyword">else</span> <span class="keyword">if</span>(temp === <span class="string">"down"</span>) &#123;</span><br><span class="line">					this.dx = 0;</span><br><span class="line">					this.dy = 1;</span><br><span class="line">				&#125; <span class="keyword">else</span> <span class="keyword">if</span>(temp === <span class="string">"left"</span>) &#123;</span><br><span class="line">					this.dx = -1;</span><br><span class="line">					this.dy = 0;</span><br><span class="line">				&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">					this.dx = 1;</span><br><span class="line">					this.dy = 0;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="built_in">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 页面加载完成后</span><br><span class="line">window.onload = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">	var snake = new Snake(args);</span><br><span class="line">	// 注册键盘事件</span><br><span class="line">	onEvent(document, <span class="string">"keydown"</span>, <span class="keyword">function</span> (e) &#123;</span><br><span class="line">		e = e || window.event;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(e.keyCode === 37) &#123; // left</span><br><span class="line">			snake.directionQueue.push(<span class="string">"left"</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span>(e.keyCode === 38) &#123; // up</span><br><span class="line">			snake.directionQueue.push(<span class="string">"up"</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span>(e.keyCode === 39) &#123; // right</span><br><span class="line">			snake.directionQueue.push(<span class="string">"right"</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span>(e.keyCode === 40) &#123; // down</span><br><span class="line">			snake.directionQueue.push(<span class="string">"down"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>就写到这里啦。</p>
 
       
@@ -427,7 +429,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -437,10 +439,8 @@
       
 
       <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/uploads/avatar.jpg"
-               alt="韩仁光" />
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="韩仁光">
           <p class="site-author-name" itemprop="name">韩仁光</p>
           <p class="site-description motion-element" itemprop="description">专心做技术</p>
         </div>
@@ -513,7 +513,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
   <span itemprop="copyrightYear">2018</span>
