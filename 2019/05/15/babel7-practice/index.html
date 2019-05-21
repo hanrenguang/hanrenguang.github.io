@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="工程化,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -85,16 +85,15 @@
 
 
 <meta name="description" content="前些天使用了 babel7，特来做个笔记。">
-<meta name="keywords" content="工程化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="babel7实践">
+<meta property="og:title" content="Hanrenguang&#39;s blog">
 <meta property="og:url" content="http://yoursite.com/2019/05/15/babel7-practice/index.html">
 <meta property="og:site_name" content="Hanrenguang&#39;s blog">
 <meta property="og:description" content="前些天使用了 babel7，特来做个笔记。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-15T14:44:24.159Z">
+<meta property="og:updated_time" content="2019-05-21T06:44:13.280Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="babel7实践">
+<meta name="twitter:title" content="Hanrenguang&#39;s blog">
 <meta name="twitter:description" content="前些天使用了 babel7，特来做个笔记。">
 
 
@@ -129,7 +128,7 @@
 
 
 
-  <title> babel7实践 | Hanrenguang's blog </title>
+  <title>  | Hanrenguang's blog </title>
 </head>
 
 <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -276,7 +275,7 @@
             
             
               
-                babel7实践
+                
               
             
           </h1>
@@ -341,18 +340,14 @@
 <p>可以看到，在编译输出的代码里，<code>helper</code> 函数被直接嵌入代码中。如果你只有这一个 <code>js</code> 文件用到了这个 <code>helper</code>，那这样并没有问题。但试想一下，如果你有很多个脚本文件，每一个你都用到了 <code>class</code>，<code>babel</code> 可不管你这么多，每个编译后的文件都包含一个一模一样的 <code>helper</code> 函数，便造成了冗余。所幸，我们可以使用 <code>@babel/plugin-transform-runtime</code> 和 <code>@babel/runtime</code> 来解决这个问题。添加如下配置：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plugins: [</span><br><span class="line">  <span class="string">'@babel/plugin-transform-runtime'</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
 <p>此时再编译上面的代码，得到的结果如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> _interopRequireDefault = <span class="built_in">require</span>(<span class="string">"@babel/runtime/helpers/interopRequireDefault"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> _classCallCheck2 = _interopRequireDefault(<span class="built_in">require</span>(<span class="string">"@babel/runtime/helpers/classCallCheck"</span>));</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Test = <span class="function"><span class="keyword">function</span> <span class="title">Test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  (<span class="number">0</span>, _classCallCheck2.default)(<span class="keyword">this</span>, Test);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>此时不再是直接把 <code>helper</code> 函数嵌入代码中，而是使用 <code>require</code> 加载公共 <code>helper</code>。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>上面说了这么多，现在给出 <code>babel7</code> 和 <code>webpack</code> 的一个实践作为结束。</p>
-<ol>
-<li><p>添加依赖</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cnpm i --save-dev babel-loader @babel/core @babel/preset-env @babel/plugin-transform-runtime</span><br><span class="line">// &amp;</span><br><span class="line">cnpm i --save @babel/polyfill @babel/runtime</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>webpack</code> 配置</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">        loader: <span class="string">'babel-loader'</span>,</span><br><span class="line">        exclude: <span class="regexp">/node_modules/</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>babel</code> 配置</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// babel.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  presets: [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">'@babel/preset-env'</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        useBuiltIns: <span class="string">'usage'</span>,</span><br><span class="line">        targets: &#123;</span><br><span class="line">          ie: <span class="number">10</span> <span class="comment">// 根据自己的目标环境进行配置</span></span><br><span class="line">        &#125;,</span><br><span class="line">        debug: <span class="literal">true</span>,</span><br><span class="line">        <span class="comment">// corejs这一项也需要加上，corejs有2和3两个版本</span></span><br><span class="line">        <span class="comment">// 如果不确定有没有下载core-js，可执行 cnpm i core-js@3 --save</span></span><br><span class="line">        corejs: <span class="number">3</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ],</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="string">'@babel/plugin-transform-runtime'</span></span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<h2 id="使用-polyfill-还是-runtime"><a href="#使用-polyfill-还是-runtime" class="headerlink" title="使用 polyfill 还是 runtime"></a>使用 <code>polyfill</code> 还是 <code>runtime</code></h2><ul>
+<li>对于要发布给别人使用的工具和库来说，使用 <code>@babel/runtime</code> 比较合适。因为 <code>@babel/polyfill</code> 会污染全局环境，别人引入你的库可能会造成不必要的污染。</li>
+<li>而 <code>@babel/runtime</code> 不能提供一些实例方法，诸如 <code>&quot;foobar&quot;.includes(&quot;foo&quot;)</code> 这类的。还需自己手动引入。<br>对于自己的应用项目，还是引入 <code>@babel/polyfill</code> 更好，提供的功能更全面，也不需要担心全局污染。但如我上面所说的，一些 <code>helper</code> 函数，如果不使用 <code>@babel/plugin-transform-runtime</code> 插件的话，会引入冗余的代码。而这两者放在一起使用的时候，如果没有对 <code>plugin-transform-runtime</code> 进行配置，是不会有重复功能的引入的。</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>上面说了这么多，现在给出 <code>babel7</code> 和 <code>webpack</code> 的实践作为结束。<br>1.添加依赖<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cnpm i --save-dev babel-loader @babel/core @babel/preset-env @babel/plugin-transform-runtime</span><br><span class="line">// &amp;</span><br><span class="line">cnpm i --save @babel/polyfill @babel/runtime</span><br></pre></td></tr></table></figure></p>
+<p>2.<code>webpack</code> 配置<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">        loader: <span class="string">'babel-loader'</span>,</span><br><span class="line">        exclude: <span class="regexp">/node_modules/</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>3.<code>babel</code> 配置<br>以下是在自己的应用项目中的配置：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// babel.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  presets: [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">'@babel/preset-env'</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        useBuiltIns: <span class="string">'usage'</span>,</span><br><span class="line">        targets: &#123;</span><br><span class="line">          ie: <span class="number">10</span> <span class="comment">// 根据自己的目标环境进行配置</span></span><br><span class="line">        &#125;,</span><br><span class="line">        debug: <span class="literal">true</span>,</span><br><span class="line">        <span class="comment">// corejs这一项也需要加上，corejs有2和3两个版本</span></span><br><span class="line">        <span class="comment">// 如果不确定有没有下载core-js，可执行 cnpm i core-js@2 --save</span></span><br><span class="line">        corejs: <span class="number">2</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ],</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="string">'@babel/plugin-transform-runtime'</span></span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>发布给别人使用的工具或库，可以使用以下配置：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// babel.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  presets: [</span><br><span class="line">    <span class="string">'@babel/preset-env'</span></span><br><span class="line">  ],</span><br><span class="line">  plugins: [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">'@babel/plugin-transform-runtime'</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        corejs: <span class="number">2</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -373,12 +368,6 @@
 
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/工程化/" rel="tag"># 工程化</a>
-          
-        </div>
       
 
       
@@ -472,7 +461,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -507,7 +496,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#presets"><span class="nav-number">1.</span> <span class="nav-text">presets</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#polyfill"><span class="nav-number">2.</span> <span class="nav-text">polyfill</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#useBuiltIns"><span class="nav-number">3.</span> <span class="nav-text">useBuiltIns</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#false"><span class="nav-number">3.1.</span> <span class="nav-text">false</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#entry"><span class="nav-number">3.2.</span> <span class="nav-text">entry</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#usage"><span class="nav-number">3.3.</span> <span class="nav-text">usage</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#plugin-transform-runtime"><span class="nav-number">4.</span> <span class="nav-text">plugin-transform-runtime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#presets"><span class="nav-number">1.</span> <span class="nav-text">presets</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#polyfill"><span class="nav-number">2.</span> <span class="nav-text">polyfill</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#useBuiltIns"><span class="nav-number">3.</span> <span class="nav-text">useBuiltIns</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#false"><span class="nav-number">3.1.</span> <span class="nav-text">false</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#entry"><span class="nav-number">3.2.</span> <span class="nav-text">entry</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#usage"><span class="nav-number">3.3.</span> <span class="nav-text">usage</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#plugin-transform-runtime"><span class="nav-number">4.</span> <span class="nav-text">plugin-transform-runtime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-polyfill-还是-runtime"><span class="nav-number">5.</span> <span class="nav-text">使用 polyfill 还是 runtime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
